@@ -1,0 +1,4 @@
+/home/danny/git/ror-family-bank/.devenv.flake.nix
+/home/danny/git/ror-family-bank/devenv.lock
+/home/danny/git/ror-family-bank/devenv.nix
+/home/danny/git/ror-family-bank/devenv.yaml

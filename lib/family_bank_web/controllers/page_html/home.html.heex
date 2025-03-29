@@ -1,0 +1,20 @@
+<div class="max-w-2xl mx-auto mt-10 text-center">
+  <h1 class="text-3xl font-bold mb-6">Family Bank</h1>
+
+  <div class="bg-white p-6 rounded-lg shadow mb-6">
+    <h2 class="text-xl font-semibold mb-2">Current Balance</h2>
+    <p class={"text-2xl #{if Decimal.compare(@current_balance, 0) == :lt, do: "text-red-600", else: "text-green-600"}"}>
+      <%= format_currency(Decimal.to_float(@current_balance)) %>
+    </p>
+  </div>
+
+  <div class="flex justify-center space-x-4">
+    <.link href={~p"/ledger"} class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
+      View Full Ledger
+    </.link>
+
+    <.link href={~p"/admin"} class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded">
+      Admin Login
+    </.link>
+  </div>
+</div>

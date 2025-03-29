@@ -1,0 +1,44 @@
+<div class="max-w-2xl mx-auto mt-10">
+  <h1 class="text-2xl font-bold mb-6">Admin Actions</h1>
+
+  <.flash_group flash={@flash} />
+
+  <div class="space-y-6">
+    <div class="bg-white p-6 rounded-lg shadow">
+      <h2 class="text-xl font-semibold mb-4">Credit</h2>
+      <.simple_form :let={f} for={:credit} action={~p"/admin/transactions/credit"}>
+        <.input field={f[:amount]} type="number" label="Amount" step="0.01" min="0.01" required />
+        <.input field={f[:description]} type="text" label="Description" />
+        <:actions>
+          <.button>Add Credit</.button>
+        </:actions>
+      </.simple_form>
+    </div>
+
+    <div class="bg-white p-6 rounded-lg shadow">
+      <h2 class="text-xl font-semibold mb-4">Debit</h2>
+      <.simple_form :let={f} for={:debit} action={~p"/admin/transactions/debit"}>
+        <.input field={f[:amount]} type="number" label="Amount" step="0.01" min="0.01" required />
+        <.input field={f[:description]} type="text" label="Description" />
+        <:actions>
+          <.button>Add Debit</.button>
+        </:actions>
+      </.simple_form>
+    </div>
+
+    <div class="bg-white p-6 rounded-lg shadow">
+      <h2 class="text-xl font-semibold mb-4">Interest</h2>
+      <.simple_form :let={f} for={:interest} action={~p"/admin/transactions/interest"}>
+        <:actions>
+          <.button>Apply Interest</.button>
+        </:actions>
+      </.simple_form>
+    </div>
+
+    <div class="flex justify-end">
+      <.link href={~p"/admin/logout"} method="post" class="text-red-600 hover:text-red-800">
+        Logout
+      </.link>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: family-bank
+    env: elixir
+    region: oregon
+    buildCommand: "./build.sh"
+    startCommand: "MIX_ENV=prod PHX_SERVER=true bin/family_bank start"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: family-bank-db
+          property: connectionString
+      - key: SECRET_KEY_BASE
+        generateValue: true
+      - key: PHX_HOST
+        value: family-bank.onrender.com
+    healthCheckPath: /
+
+databases:
+  - name: family-bank-db
+    region: oregon
+    plan: free
